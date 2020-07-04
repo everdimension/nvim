@@ -1,0 +1,5 @@
+{
+	"yank.highlight.duration": 200,
+	"diagnostic.errorSign": "●",
+	"diagnostic.infoSign": "●"
+}

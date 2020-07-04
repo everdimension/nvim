@@ -10,14 +10,17 @@ map <leader>ri :e $MYVIMRC<CR>
 map <leader>rk :e ~/.config/nvim/keys/mappings.vim<CR>
 map <leader>rc :NERDTree ~/.config/nvim<CR>
 
+" Open/close tree view
 map <C-\> :NERDTreeToggle<CR>
-nmap <leader><BS> :NERDTreeFocus<CR>
+" Open tree view and find current file in it
 map <leader>\\ :NERDTreeFind<CR>
+" Focus tree view
+nmap <leader><BS> :NERDTreeFocus<CR>
+
 " save file with leader+S
 map <leader>s :write<CR>
 
 map <leader>/ <plug>NERDCommenterToggle
-map <C-M-f> :echo "todo: prettier"<CR>
 
 " Use alt + hjkl to resize windows
 nnoremap <silent> <M-j>    :resize -2<CR>
@@ -39,14 +42,13 @@ map <leader>w :bp\|bd #<CR>
 map <leader>q :qa<CR>
 
 " Prettier
-vmap <leader>vf  <Plug>(coc-format-selected)
-" nmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  :Prettier<CR>
+map <C-M-f> :Prettier<CR>
+vmap <C-M-f> <Plug>(coc-format-selected)
 
 " Invisible characters
 " Shortcut to rapidly toggle `set list`
 map <leader>in :set list!<CR>
 
-" Use the same symbols as TextMate for tabstops and EOLs    
+" Show invisible characters such as tabs, spaces, end of line, etc
 autocmd FileType * set listchars=tab:▸\ ,eol:¬,space:·,trail:~
 " autocmd FileType * set listchars=tab:▸\ ,eol:¬,space:␣,trail:~

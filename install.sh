@@ -24,7 +24,7 @@ brew install python3
 # 2.1. Several python3 executables can be found, so neovim suggests
 # explicitly defining which one to use
 # My python3 was installed by brew to /usr/local/bin/python3, so 
-# I added this line to nvim/general/settings.vim:
+# I added this line to ./general/settings.vim:
 
 # let g:python3_host_prog = '/usr/local/bin/python3'
 

@@ -45,7 +45,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	Plug 'junegunn/fzf.vim'
 
 	" Git integration
-	Plug 'mhinz/vim-signify'
+	Plug 'mhinz/vim-signify' " show git diff in gutter
+	Plug 'tpope/vim-fugitive' " :Git command and :Gitsplit
+	Plug 'tpope/vim-rhubarb' " extends vim-fugitive's :GBrowse to open Github URLs
+	Plug 'tommcdo/vim-fubitive' " extends vim-fugitive's :GBrowse to open BitBucket URLs
+	Plug 'shumphrey/fugitive-gitlab.vim' " extends vim-fugitive's :GBrowse to open GitLab URLs
 
 	" Expand selection by pressing same key
 	Plug 'terryma/vim-expand-region'
@@ -53,6 +57,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	" Multiple cursors like in sublime text
 	Plug 'terryma/vim-multiple-cursors'
 
+	" Status line
+	Plug 'itchyny/lightline.vim'
 
 
 call plug#end()
@@ -60,6 +66,7 @@ call plug#end()
 " Plugin configuration
 
 source $HOME/.config/nvim/plug-config/quick-scope.vim " must be sourced before `colorscheme` is set
+source $HOME/.config/nvim/plug-config/lightline.vim
 " **** COLORSCHEME ****
 source $HOME/.config/nvim/plug-config/onedark.vim
 source $HOME/.config/nvim/plug-config/coc-yank.vim " must be sourced before `colorscheme` is set

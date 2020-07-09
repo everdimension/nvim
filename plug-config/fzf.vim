@@ -4,4 +4,7 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-nnoremap <C-p> :GFiles<CR>
+" nnoremap <C-P> :GFiles<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <C-M-p> :Files ~<CR>
+nnoremap <leader>rg :Rg<CR>

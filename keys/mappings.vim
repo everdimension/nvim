@@ -2,14 +2,18 @@
 vnoremap < <gv
 vnoremap > >gv
 
-let mapleader=" "
 nnoremap <Space> <Nop>
+let mapleader=" "
 
+" turn last word to uppercase
+inoremap <c-u> <esc>viwUea
 map <leader>rr :source $MYVIMRC<CR>
 map <leader>ri :e $MYVIMRC<CR>
 map <leader>rk :e ~/.config/nvim/keys/mappings.vim<CR>
 map <leader>rc :NERDTree ~/.config/nvim<CR>
 
+" Stop the highlighting for the 'hlsearch' option
+nnoremap <leader>n :noh<CR>
 " Open/close tree view
 map <C-\> :NERDTreeToggle<CR>
 " Open tree view and find current file in it
@@ -19,6 +23,8 @@ nmap <leader><BS> :NERDTreeFocus<CR>
 
 " save file with leader+S
 map <leader>s :write<CR>
+
+nnoremap - 0
 
 map <leader>/ <plug>NERDCommenterToggle
 
@@ -41,6 +47,9 @@ map <S-Tab> :bprevious<CR> " alt-shift-tab
 map <leader>w :bp\|bd #<CR>
 map <leader>q :qa<CR>
 
+" get into command state to search opened buffers
+nnoremap <leader>b :b <C-d>
+
 " Prettier
 map <C-M-f> :Prettier<CR>
 vmap <C-M-f> <Plug>(coc-format-selected)
@@ -50,5 +59,12 @@ vmap <C-M-f> <Plug>(coc-format-selected)
 map <leader>in :set list!<CR>
 
 " Show invisible characters such as tabs, spaces, end of line, etc
-autocmd FileType * set listchars=tab:▸\ ,eol:¬,space:·,trail:~
+" autocmd FileType * set listchars=tab:▸\ ,eol:¬,space:·,trail:~
+set listchars=tab:▸\ ,eol:¬,space:·,trail:~
 " autocmd FileType * set listchars=tab:▸\ ,eol:¬,space:␣,trail:~
+
+
+" Copy whole file contents
+nmap <leader>yy gg<S-v>G"*y''
+" 
+nmap <leader>cc :let @*=@0<CR>

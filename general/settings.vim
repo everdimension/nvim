@@ -11,4 +11,10 @@ set autoindent
 set tabstop=2 " make tab 2 spaces wide
 set shiftwidth=2 " default number of spaces for indentation
 set expandtab " new indentation is created with spaces
+set mouse=a " enable mouse interactions, 'a' means all modes
 
+set wildignorecase " ignore case when expanding suggestions
+set ignorecase
+set smartcase
+
+" set foldmethod=indent

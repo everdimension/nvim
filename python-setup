@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# this is used only by coc-pyright plugin
+# (see coc-settings.py: "python.pythonPath": "<PUT PATH HERE>")
+
+python "$@"
+

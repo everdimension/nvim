@@ -13,8 +13,13 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	Plug 'jiangmiao/auto-pairs'
 	" Surround
 	Plug 'tpope/vim-surround'
+
 	" One Dark Theme
 	Plug 'joshdick/onedark.vim'
+
+	" Color theme
+	" Plug 'chuling/ci_dark'
+	Plug 'luochen1990/rainbow'
 
 	" Comments based on language
 	" Plug 'tpope/vim-commentary'
@@ -60,6 +65,15 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	" Status line
 	Plug 'itchyny/lightline.vim'
 
+	" Make normal mode work when RU keyboard layout is selected in OS
+	Plug 'powerman/vim-plugin-ruscmd'
+
+	" Show buffers as 'tabs'
+	" Plug 'yazdani42/nvim-web-devicons'
+	" Plug 'romgrk/lib.kom'
+	" Plug 'romgrk/barbar.nvim'
+
+
 
 call plug#end()
 
@@ -69,6 +83,7 @@ source $HOME/.config/nvim/plug-config/quick-scope.vim " must be sourced before `
 source $HOME/.config/nvim/plug-config/lightline.vim
 " **** COLORSCHEME ****
 source $HOME/.config/nvim/plug-config/onedark.vim
+" source $HOME/.config/nvim/plug-config/ci-dark.vim
 source $HOME/.config/nvim/plug-config/coc-yank.vim " must be sourced before `colorscheme` is set
 
 source $HOME/.config/nvim/plug-config/nerdcommenter.vim
@@ -79,4 +94,5 @@ source $HOME/.config/nvim/plug-config/startify-configuration.vim
 source $HOME/.config/nvim/plug-config/fzf.vim
 source $HOME/.config/nvim/plug-config/vim-signify.vim
 source $HOME/.config/nvim/plug-config/vim-expand-region.vim
+source $HOME/.config/nvim/plug-config/nerdtree.vim
 

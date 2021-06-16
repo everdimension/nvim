@@ -7,4 +7,4 @@ let g:fzf_action = {
 " nnoremap <C-P> :GFiles<CR>
 nnoremap <C-p> :Files<CR>
 nnoremap <C-M-p> :Files ~<CR>
-nnoremap <leader>rg :Rg<CR>
+nmap <leader>rg :Rg<CR>

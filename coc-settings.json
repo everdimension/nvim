@@ -1,5 +1,6 @@
 {
 	"yank.highlight.duration": 200,
 	"diagnostic.errorSign": "●",
-	"diagnostic.infoSign": "●"
+	"diagnostic.infoSign": "●",
+	"python.pythonPath": "/Users/everdimension/.config/nvim/python-setup"
 }

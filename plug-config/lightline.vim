@@ -1,5 +1,5 @@
 let g:lightline = {
-      \ 'colorscheme': 'onedark',
+      \ 'colorscheme': g:colorscheme_name,
       \ 'active': {
             \   'left': [ [ 'paste' ],
             \             [ 'filename', 'modified' ] ]
@@ -23,3 +23,14 @@ function! LightlineFilename()
   endif
   return expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
 endfunction
+
+command! LightlineReload call LightlineReload()
+
+function! LightlineReload()
+  echo "LightlineReload"
+  call lightline#init()
+  call lightline#colorscheme()
+  call lightline#update()
+endfunction
+
+:call timer_start(200, { -> execute("call LightlineReload()") })

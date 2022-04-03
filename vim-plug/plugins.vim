@@ -16,6 +16,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 	" One Dark Theme
 	Plug 'joshdick/onedark.vim'
+	" One dark/light theme
+	Plug 'rakr/vim-one'
 
 	" Color theme
 	" Plug 'chuling/ci_dark'
@@ -78,11 +80,31 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 call plug#end()
 
 " Plugin configuration
+let g:themeType = "dark"
 
 source $HOME/.config/nvim/plug-config/quick-scope.vim " must be sourced before `colorscheme` is set
-source $HOME/.config/nvim/plug-config/lightline.vim
 " **** COLORSCHEME ****
 source $HOME/.config/nvim/plug-config/onedark.vim
+source $HOME/.config/nvim/plug-config/one.vim
+
+source $HOME/.config/nvim/plug-config/lightline.vim
+
+nnoremap <leader>dd :call SwitchThemeGlobal()<cr>
+
+function! SwitchThemeGlobal()
+  if g:themeType == "light"
+    let g:themeType = "dark"
+  else
+    let g:themeType = "light"
+  endif
+	source $HOME/.config/nvim/plug-config/onedark.vim
+	source $HOME/.config/nvim/plug-config/one.vim
+  source $HOME/.config/nvim/plug-config/lightline.vim
+	echo g:themeType
+endfunction
+
+
+
 " source $HOME/.config/nvim/plug-config/ci-dark.vim
 source $HOME/.config/nvim/plug-config/coc-yank.vim " must be sourced before `colorscheme` is set
 

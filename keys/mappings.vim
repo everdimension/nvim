@@ -68,3 +68,4 @@ set listchars=tab:▸\ ,eol:¬,space:·,trail:~
 nmap <leader>yy gg<S-v>G"*y''
 " 
 nmap <leader>cc :let @*=@0<CR>
+map <leader>p "0p

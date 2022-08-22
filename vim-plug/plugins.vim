@@ -3,10 +3,15 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 	echom "Vim Plug not found"
 endif
 
-call plug#begin('~/.config/nvim/autoload/plugged')
+" call plug#begin('~/.config/nvim/autoload/plugged')
+call plug#begin(stdpath('data') . '/plugged')
 
 	" Language packs for Vim (syntax support)
-	Plug 'sheerun/vim-polyglot'
+	" Plug 'sheerun/vim-polyglot'
+
+	" Treesitter (syntax highlighting)
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 	" File Explorer
 	Plug 'preservim/nerdtree'
 	" Auto pairs for '(' '[' '{'
@@ -37,6 +42,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 	" Completion and LSP inspired by VSCode
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+	Plug 'neovim/nvim-lspconfig'
+	Plug 'williamboman/nvim-lsp-installer'
 
 	" Sets 'working directory' to the project root
 	" based on current file based on some heuristics (e.g. VCS)

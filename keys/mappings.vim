@@ -21,6 +21,9 @@ map <leader>\\ :NERDTreeFind<CR>
 " Focus tree view
 nmap <leader><BS> :NERDTreeFocus<CR>
 
+nmap <C-h> 0ea<Space>
+nmap <C-t> 0ea<Space>type<esc>
+
 " save file with leader+S
 map <leader>s :write<CR>
 

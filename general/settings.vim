@@ -17,6 +17,12 @@ set wildignorecase " ignore case when expanding suggestions
 set ignorecase
 set smartcase
 
+" https://parceljs.org/features/development/#safe-write
+set backupcopy=yes
+
+" Since number column is hidden, this is a way to give text area left pagging
+set scl=yes
+
 " set foldmethod=indent
 
 " autocmd WinEnter,BufEnter * set cursorline

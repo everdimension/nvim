@@ -1,6 +1,16 @@
 {
-	"yank.highlight.duration": 200,
-	"diagnostic.errorSign": "●",
-	"diagnostic.infoSign": "●",
-	"python.pythonPath": "/Users/everdimension/.config/nvim/python-setup"
+  "yank.highlight.duration": 200,
+  "diagnostic.errorSign": "r",
+  "diagnostic.infoSign": "●",
+  "python.pythonPath": "/Users/everdimension/.config/nvim/python-setup",
+  "prettier.singleQuote": true,
+  "prettier.arrowParens": "avoid",
+  "json.schemas": [
+    {
+      "fileMatch": ["manifest.json"],
+      "schema": {
+        "$schema": "https://json.schemastore.org/chrome-manifest.json"
+      }
+    }
+  ]
 }

@@ -1,10 +1,11 @@
 {
   "yank.highlight.duration": 200,
-  "diagnostic.errorSign": "r",
+  "diagnostic.errorSign": "!",
   "diagnostic.infoSign": "●",
   "python.pythonPath": "/Users/everdimension/.config/nvim/python-setup",
   "prettier.singleQuote": true,
   "prettier.arrowParens": "avoid",
+  "pyright.enable": false,
   "json.schemas": [
     {
       "fileMatch": ["manifest.json"],

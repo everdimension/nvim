@@ -1,5 +1,13 @@
+  if g:themeType == "light"
+    let colorscheme_name = "one"
+  else
+    let colorscheme_name = "onedark"
+  endif
 let g:lightline = {
-      \ 'colorscheme': g:colorscheme_name,
+      \ 'enable': {
+          \ 'tabline': 0
+      \ },
+      \ 'colorscheme': colorscheme_name,
       \ 'active': {
             \   'left': [ [ 'paste' ],
             \             [ 'filename', 'modified' ] ]

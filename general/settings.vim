@@ -23,6 +23,8 @@ set backupcopy=yes
 " Since number column is hidden, this is a way to give text area left pagging
 set scl=yes
 
+set termguicolors
+
 " set foldmethod=indent
 
 " autocmd WinEnter,BufEnter * set cursorline

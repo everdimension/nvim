@@ -1,8 +1,8 @@
 " check vim-plug
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-	echom "Vim Plug not found"
+if exists('*plug#begin') == 0
+  echom "Vim Plug Not Found!"
 endif
-
+  
 " call plug#begin('~/.config/nvim/autoload/plugged')
 call plug#begin(stdpath('data') . '/plugged')
 
@@ -13,7 +13,8 @@ call plug#begin(stdpath('data') . '/plugged')
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 	" File Explorer
-	Plug 'preservim/nerdtree'
+	" Plug 'preservim/nerdtree'
+	Plug 'kyazdani42/nvim-tree.lua'
 	" Auto pairs for '(' '[' '{'
 	Plug 'jiangmiao/auto-pairs'
 	" Surround
@@ -23,14 +24,17 @@ call plug#begin(stdpath('data') . '/plugged')
 	Plug 'joshdick/onedark.vim'
 	" One dark/light theme
 	Plug 'rakr/vim-one'
+	Plug 'LunarVim/onedarker.nvim'
+	Plug 'RRethy/nvim-base16'
 
 	" Color theme
 	" Plug 'chuling/ci_dark'
-	Plug 'luochen1990/rainbow'
+	" Plug 'luochen1990/rainbow'
 
 	" Comments based on language
 	" Plug 'tpope/vim-commentary'
-	Plug 'preservim/nerdcommenter'
+	" Plug 'preservim/nerdcommenter'
+	Plug 'numToStr/Comment.nvim'
 
 	" Automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
 	Plug 'tpope/vim-sleuth'
@@ -71,6 +75,8 @@ call plug#begin(stdpath('data') . '/plugged')
 
 	" Multiple cursors like in sublime text
 	Plug 'terryma/vim-multiple-cursors'
+	" Maybe try this one?
+	" Plug mg979/vim-visual-multi
 
 	" Status line
 	Plug 'itchyny/lightline.vim'
@@ -78,10 +84,14 @@ call plug#begin(stdpath('data') . '/plugged')
 	" Make normal mode work when RU keyboard layout is selected in OS
 	Plug 'powerman/vim-plugin-ruscmd'
 
+	Plug 'kdheepak/monochrome.nvim'
+
 	" Show buffers as 'tabs'
 	" Plug 'yazdani42/nvim-web-devicons'
 	" Plug 'romgrk/lib.kom'
 	" Plug 'romgrk/barbar.nvim'
+	Plug 'kyazdani42/nvim-web-devicons' " required by  'akinsho/bufferline.nvim'
+	Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 
 
 
@@ -92,12 +102,17 @@ let g:themeType = "dark"
 
 source $HOME/.config/nvim/plug-config/quick-scope.vim " must be sourced before `colorscheme` is set
 " **** COLORSCHEME ****
-source $HOME/.config/nvim/plug-config/onedark.vim
-source $HOME/.config/nvim/plug-config/one.vim
 
-source $HOME/.config/nvim/plug-config/lightline.vim
+function! SourceColorSchemeRelatedPlugins()
+  " let g:colorscheme_name = 'base-16-ayu-dark'
+  source $HOME/.config/nvim/plug-config/onedark.vim
+  " source $HOME/.config/nvim/plug-config/colorscheme-base-16.vim
+  source $HOME/.config/nvim/plug-config/one.vim
+  " source $HOME/.config/nvim/plug-config/monochrome.vim
+  source $HOME/.config/nvim/plug-config/lightline.vim
+endfunction
 
-nnoremap <leader>dd :call SwitchThemeGlobal()<cr>
+call SourceColorSchemeRelatedPlugins()
 
 function! SwitchThemeGlobal()
   if g:themeType == "light"
@@ -105,18 +120,19 @@ function! SwitchThemeGlobal()
   else
     let g:themeType = "light"
   endif
-	source $HOME/.config/nvim/plug-config/onedark.vim
-	source $HOME/.config/nvim/plug-config/one.vim
-  source $HOME/.config/nvim/plug-config/lightline.vim
-	echo g:themeType
+  call SourceColorSchemeRelatedPlugins()
+  echo g:themeType
 endfunction
+
+nnoremap <leader>dd :call SwitchThemeGlobal()<cr>
 
 
 
 " source $HOME/.config/nvim/plug-config/ci-dark.vim
 source $HOME/.config/nvim/plug-config/coc-yank.vim " must be sourced before `colorscheme` is set
 
-source $HOME/.config/nvim/plug-config/nerdcommenter.vim
+" source $HOME/.config/nvim/plug-config/nerdcommenter.vim
+source $HOME/.config/nvim/plug-config/Comment.vim
 source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/coc-prettier.vim
 source $HOME/.config/nvim/plug-config/coc-highlights.vim
@@ -124,5 +140,12 @@ source $HOME/.config/nvim/plug-config/startify-configuration.vim
 source $HOME/.config/nvim/plug-config/fzf.vim
 source $HOME/.config/nvim/plug-config/vim-signify.vim
 source $HOME/.config/nvim/plug-config/vim-expand-region.vim
-source $HOME/.config/nvim/plug-config/nerdtree.vim
+lua << EOF
+  require('Comment').setup()
+EOF
+" source $HOME/.config/nvim/plug-config/nerdtree.vim
+lua << EOF
+  require('user/bufferline')
+  require('user/nvim-tree')
+EOF
 

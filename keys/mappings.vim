@@ -10,16 +10,21 @@ inoremap <c-u> <esc>viwUea
 map <leader>rr :source $MYVIMRC<CR>
 map <leader>ri :e $MYVIMRC<CR>
 map <leader>rk :e ~/.config/nvim/keys/mappings.vim<CR>
-map <leader>rc :NERDTree ~/.config/nvim<CR>
+map <leader>rc :NvimTreeOpen ~/.config/nvim<CR>
+
+nmap n nzz
+nmap N Nzz
+
+nmap <leader>co :Colors<CR>
 
 " Stop the highlighting for the 'hlsearch' option
 nnoremap <leader>n :noh<CR>
 " Open/close tree view
-map <C-\> :NERDTreeToggle<CR>
+map <C-\> :NvimTreeToggle<CR>
 " Open tree view and find current file in it
-map <leader>\\ :NERDTreeFind<CR>
+map <leader>\\ :NvimTreeFindFile<CR>
 " Focus tree view
-nmap <leader><BS> :NERDTreeFocus<CR>
+nmap <leader><BS> :NvimTreeFocus<CR>
 
 nmap <C-h> 0ea<Space>
 nmap <C-t> 0ea<Space>type<esc>
@@ -29,7 +34,8 @@ map <leader>s :write<CR>
 
 nnoremap - 0
 
-map <leader>/ <plug>NERDCommenterToggle
+" map <leader>/ <plug>NERDCommenterToggle
+map <leader>/ gcc
 
 " Use alt + hjkl to resize windows
 nnoremap <silent> <M-j>    :resize -2<CR>
@@ -37,6 +43,8 @@ nnoremap <silent> <M-k>    :resize +2<CR>
 nnoremap <silent> <M-h>    :vertical resize -2<CR>
 nnoremap <silent> <M-l>    :vertical resize +2<CR>
 
+inoremap <M-BS> <esc>lc0
+" nnoremap <-BS> <esc>lc0
 " Next buffer
 " map <leader><tab> :bnext<CR>
 " map <leader><S-tab> :bprevious<CR>

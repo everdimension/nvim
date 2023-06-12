@@ -10,5 +10,5 @@ Once you have neovim running, install all plugins by running
 this command from within nvim:
 
 ```
-:PlugInstall
+:PackerSync
 ```

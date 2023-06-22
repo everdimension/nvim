@@ -1,3 +1,5 @@
+" NOTE: deprecated in favour of lua/plugins.lua
+
 " check vim-plug
 if exists('*plug#begin') == 0
   echom "Vim Plug Not Found!"

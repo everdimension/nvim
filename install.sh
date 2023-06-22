@@ -1,7 +1,7 @@
 # This file is supposed to list
 # all external dependencies that need to be installed
 # either for nvim itself or for some of the plugins
-# and cannot be installed automatically with 
+# and cannot be installed automatically with
 # the plugin manager (e.g. vim-plug, which I use for all plugins)
 
 # For now this file serves just as a reference, but
@@ -23,7 +23,7 @@ brew install python3
 
 # 2.1. Several python3 executables can be found, so neovim suggests
 # explicitly defining which one to use
-# My python3 was installed by brew to /usr/local/bin/python3, so 
+# My python3 was installed by brew to /usr/local/bin/python3, so
 # I added this line to ./general/settings.vim:
 
 # let g:python3_host_prog = '/usr/local/bin/python3'
@@ -40,12 +40,11 @@ brew install fnm # node version manager, https://github.com/Schniz/fnm
 
 fnm install v12.18.0
 
-# 4. Vim Plug
-# Plugin manager for vim
-# https://github.com/junegunn/vim-plug
-# From the vim-plug docs, to install vim-plug you run this command:
-
-curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# 4.
+# Plugin manager for vim (packer is written in lua, that's why most switch from vim-plug)
+# https://github.com/wbthomason/packer.nvim#quickstart
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 # 5. pynvim is used by the 'neoclide/coc.nvim' plugin and other stuff
 pip3 install pynvim

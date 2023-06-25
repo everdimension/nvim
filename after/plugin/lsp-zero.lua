@@ -13,6 +13,17 @@ require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
 lsp.setup()
 
+vim.diagnostic.config({
+  -- Do not show diagnostics inline
+  virtual_text = false,
+})
+
+-- Show diagnostics floating window faster:
+-- Reduce updatetime which affects CursorHold
+-- note: this setting is global and should be set only once
+vim.o.updatetime = 500
+vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+
 -- Make sure you setup `cmp` after lsp-zero
 
 local cmp = require('cmp')

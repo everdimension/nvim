@@ -1,6 +1,7 @@
 require('settings')
 require('key-mappings')
 require('user.neovide-text-zoom')
+require('plugins')
 
 vim.cmd('source $HOME/.config/nvim/custom/watch-for-changes/init.vim')
 

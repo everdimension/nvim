@@ -37,9 +37,12 @@ vim.api.nvim_set_keymap('n', '<D-s>', ':write<CR>', {})
 
 vim.api.nvim_set_keymap('n', '-', '0', {})
 
+-- Comment.nvim
 vim.api.nvim_set_keymap('n', '<leader>/', 'gcc', {})
+vim.api.nvim_set_keymap('v', '<leader>/', 'gcc', {})
 vim.api.nvim_set_keymap('n', '<D-/>', 'gcc', {})
-vim.api.nvim_set_keymap('v', '<D-/>', 'gcc', {})
+vim.api.nvim_set_keymap('v', '<D-/>', 'gcc<ESC>', {})
+vim.api.nvim_set_keymap('i', '<D-/>', '<esc>gcca', {})
 
 -- Use alt + hjkl to resize windows
 vim.api.nvim_set_keymap('n', '<M-j>', ':resize -2<CR>', { silent = true })
@@ -73,13 +76,17 @@ vim.api.nvim_set_option('listchars', 'tab:▸\\ ,eol:¬,space:·,trail:~')
 
 -- Copy whole file contents
 vim.api.nvim_set_keymap('n', '<leader>yy', 'ggVG"*y\'\'', {})
+-- Put current yank to system clipboard
 vim.api.nvim_set_keymap('n', '<leader>cc', ':let @*=@0<CR>', {})
+-- Put current file path to system clipboard, cs means "copy source" :)
+vim.api.nvim_set_keymap('n', '<leader>cs', ':let @*=expand("%")<CR>', {})
+
 vim.api.nvim_set_keymap('n', '<leader>p', '"0p', {})
 
 
 -- Move selection
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
 
 -- Neovide
 

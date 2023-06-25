@@ -63,8 +63,8 @@ vim.opt.guicursor = 'n-v-c-sm:hor30-iCursor-blinkwait300-blinkon200-blinkoff150,
 
 -- Ideas from https://bryankegley.me/posts/nvim-getting-started/
 -- o.completeopt = 'menuone,noinsert,noselect'
--- bo.autoindent = true
--- bo.smartindent = true
+vim.bo.autoindent = true
+vim.bo.smartindent = true
 -- bo.swapfile = false
 -- o.backup = false
 

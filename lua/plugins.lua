@@ -27,6 +27,7 @@ return require('packer').startup(function(use)
       vim.cmd('colorscheme rose-pine')
     end
   })
+  use 'pbrisbin/vim-colors-off'
 
   -- Treesitter
   use({
@@ -70,6 +71,8 @@ return require('packer').startup(function(use)
     'lewis6991/gitsigns.nvim',
     config = function()
       require('gitsigns').setup()
+      vim.keymap.set("n", "]c", ":Gitsigns next_hunk<CR>")
+      vim.keymap.set("n", "[c", ":Gitsigns prev_hunk<CR>")
     end
   }
 

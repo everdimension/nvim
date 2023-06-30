@@ -18,7 +18,7 @@ vim.api.nvim_exec([[
 -- Explicilty set python3 executable
 vim.g.python3_host_prog = '/usr/local/bin/python3'
 
-vim.opt.autoindent = true
+vim.opt.cindent = true -- better indentation is enabled by treesitter
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
@@ -63,8 +63,6 @@ vim.opt.guicursor = 'n-v-c-sm:hor30-iCursor-blinkwait300-blinkon200-blinkoff150,
 
 -- Ideas from https://bryankegley.me/posts/nvim-getting-started/
 -- o.completeopt = 'menuone,noinsert,noselect'
-vim.bo.autoindent = true
-vim.bo.smartindent = true
 -- bo.swapfile = false
 -- o.backup = false
 

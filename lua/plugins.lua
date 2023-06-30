@@ -101,4 +101,15 @@ return require('packer').startup(function(use)
 	use 'tpope/vim-surround'
 	-- Multiple cursors like in sublime text
 	use 'terryma/vim-multiple-cursors'
+
+
+  -- Start screen
+  use {
+    'mhinz/vim-startify',
+    config = function()
+      vim.g.startify_change_to_vcs_root = 1
+      vim.g.startify_custom_header = {}
+    end
+  }
+
 end)

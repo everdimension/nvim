@@ -1,5 +1,7 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
+-- After adding a plugin, run :PackerInstall to install
+
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
@@ -9,7 +11,7 @@ return require('packer').startup(function(use)
 
   -- Fuzzy finder, e.g. ctrl-p and search in files
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.1',
+    'nvim-telescope/telescope.nvim', tag = '0.1.4',
     -- or                            , branch = '0.1.x',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
@@ -23,11 +25,17 @@ return require('packer').startup(function(use)
   use({
     'rose-pine/neovim',
     as = 'rose-pine',
-    config = function()
-      vim.cmd('colorscheme rose-pine')
-    end
   })
   use 'pbrisbin/vim-colors-off'
+  use {
+    "catppuccin/nvim",
+    as = "catppuccin",
+    config = function()
+      vim.cmd('colorscheme catppuccin-macchiato')
+    end
+  }
+
+	use 'kdheepak/monochrome.nvim'
 
   -- Treesitter
   use({
@@ -77,7 +85,7 @@ return require('packer').startup(function(use)
   }
 
   -- Prettier formatter
-  use('jose-elias-alvarez/null-ls.nvim')
+  use('nvimtools/none-ls.nvim')
   use('MunifTanjim/prettier.nvim')
 
   -- File tree view / Explorer
@@ -99,6 +107,9 @@ return require('packer').startup(function(use)
 	use 'jiangmiao/auto-pairs'
 	-- Surround
 	use 'tpope/vim-surround'
+
+  use 'tpope/vim-unimpaired'
+
 	-- Multiple cursors like in sublime text
 	use 'terryma/vim-multiple-cursors'
 
@@ -111,5 +122,15 @@ return require('packer').startup(function(use)
       vim.g.startify_custom_header = {}
     end
   }
+
+  -- Used to generate JSDoc from typescript annotations
+  -- Does it quite badly, but best so far
+  -- Usage: position cursor, invoke :DogeGenerate
+  use {
+    'kkoomen/vim-doge',
+    run = ':call doge#install()'
+  }
+
+  use 'Glench/Vim-Jinja2-Syntax'
 
 end)

@@ -1,5 +1,6 @@
 require('settings')
 require('key-mappings')
+require('user.diagnostics')
 require('user.neovide-text-zoom')
 require('plugins')
 

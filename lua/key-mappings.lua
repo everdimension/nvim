@@ -88,13 +88,28 @@ vim.api.nvim_set_keymap('n', '<leader>p', '"0p', {})
 vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
 
+
+-- Buffer splits
+vim.api.nvim_set_keymap('n', '<C-w>%', ':vsplit<CR>', {})
+vim.api.nvim_set_keymap('n', '<C-w>"', ':split<CR>', {})
+
 -- Neovide
 
 -- Copy and Paste
 vim.api.nvim_set_keymap('n', '<D-v>', '"+p', {})
 vim.api.nvim_set_keymap('i', '<D-v>', '<esc>"+p', {})
 vim.api.nvim_set_keymap('v', '<D-c>', '"+y<CR>', {})
+vim.api.nvim_set_keymap('i', '<D-a>', '<esc>ggVG', {})
+vim.api.nvim_set_keymap('n', '<D-a>', 'ggVG', {})
+
+-- Macros
+vim.fn.setreg('c', 'f-x~'); -- convert dash case to camelCase using @c
 
 -- Next buffer
 vim.api.nvim_set_keymap('n', '<D-]>', ':bnext<CR>', {})
 vim.api.nvim_set_keymap('n', '<D-[>', ':bprevious<CR>', {})
+
+-- Toggle dark/light scheme
+vim.api.nvim_set_keymap('n', '<leader>l', ':set background=dark<CR>', {})
+vim.api.nvim_set_keymap('n', '<leader>L', ':set background=light<CR>', {})
+

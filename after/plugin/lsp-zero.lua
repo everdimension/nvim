@@ -11,6 +11,34 @@ end)
 -- (Optional) Configure lua language server for neovim
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
+-- START TODO JSONLS setup
+-- completion for json files, e.g. tsconfig.json
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    "documentation",
+    "detail",
+    "additionalTextEdits"
+  }
+}
+
+require('lspconfig').jsonls.setup{
+  capabilities = capabilities,
+  filetypes = {"json"},
+  settings = {
+    json = {
+      schemas = {
+        fileMatch = {"tsconfig*.json"},
+        url = "https://json.schemastore.org/tsconfig.json"
+      },
+    }
+  }
+}
+-- END TODO JSONLS setup
+
+require('lspconfig').emmet_language_server.setup({})
+
 lsp.setup()
 
 vim.diagnostic.config({

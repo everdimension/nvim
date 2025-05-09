@@ -31,11 +31,9 @@ return require('packer').startup(function(use)
     "catppuccin/nvim",
     as = "catppuccin",
     config = function()
-      vim.cmd('colorscheme catppuccin-macchiato')
+      vim.cmd('colorscheme catppuccin-frappe')
     end
   }
-
-	use 'kdheepak/monochrome.nvim'
 
   -- Treesitter
   use({
